@@ -20,11 +20,10 @@ RUN apk -U update && \
     apk -U add --no-cache \
         libxslt-dev
 
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install pycryptodomex && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install gmusicapi && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install gmusicapi-wrapper && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install gmusicapi-scripts && deactivate"
-RUN ls -l /virtual/bin/
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install pycryptodomex && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install gmusicapi && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install gmusicapi-wrapper && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install gmusicapi-scripts && deactivate"
 
 # Main image
 FROM alpine:3.7

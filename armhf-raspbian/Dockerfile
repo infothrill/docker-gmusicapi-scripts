@@ -23,15 +23,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 # we rely on --system-site-packages for lxml
 RUN pyvenv /virtual
-RUN ls -l /virtual/bin/
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install mutagen && deactivate"
-RUN ls -l /virtual/bin/
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install docopt && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install pycryptodomex && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install gmusicapi && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install gmusicapi-wrapper && deactivate"
-RUN /bin/sh -c "source /virtual/bin/activate && pip3 install gmusicapi-scripts && deactivate"
-RUN ls -l /virtual/bin/
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install mutagen && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install docopt && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install pycryptodomex && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install gmusicapi && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install gmusicapi-wrapper && deactivate"
+RUN /bin/sh -c ". /virtual/bin/activate && pip3 install gmusicapi-scripts && deactivate"
 
 FROM resin/rpi-raspbian:stretch
 

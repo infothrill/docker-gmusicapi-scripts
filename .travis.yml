@@ -3,10 +3,10 @@ sudo: required
 services:
   - docker
 language: bash
-dir:
-  - x86-alpine
-  - x86-debian
-  - armhf-alpine
-  - armhf-raspbian
+env:
+  - DIR="x86-alpine"
+  - DIR="x86-debian"
+  - DIR="armhf-alpine"
+  - DIR="armhf-raspbian"
 script:
-  - DIR=$dir make build test
+  - make build test

@@ -21,7 +21,7 @@ push:
 
 test:
 	docker run --rm $(IMAGE_NAME) /bin/echo "Success."
-	docker run --rm $(IMAGE_NAME) /usr/local/bin/gmsync --help
+	docker run --rm $(IMAGE_NAME) /virtual/bin/gmsync --help
 
 rmi:
 	docker rmi -f $(IMAGE_NAME)

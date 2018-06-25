@@ -1,0 +1,12 @@
+---
+sudo: required
+services:
+  - docker
+language: bash
+dir:
+  - x86-alpine
+  - x86-debian
+  - armhf-alpine
+  - armhf-raspbian
+script:
+  - DIR=$dir make build test

@@ -21,7 +21,7 @@ RUN apt-get update \
         python3-venv \
         python3-lxml \
     && rm -rf /var/lib/apt/lists/*
-# we rely on --system-site-packages for lxml
+
 RUN pyvenv /virtual
 RUN /bin/sh -c ". /virtual/bin/activate && pip3 install mutagen && deactivate"
 RUN /bin/sh -c ". /virtual/bin/activate && pip3 install docopt && deactivate"
@@ -48,3 +48,9 @@ ENV LD_LIBRARY_PATH /opt/vc/lib
 
 RUN useradd -ms /bin/bash --home-dir /home/gmuser --create-home -u 1000 gmuser
 COPY --from=compile /virtual /virtual
+RUN ln -s /virtual/bin/gmsearch /usr/local/bin/ \
+    && ln -s /virtual/bin/gmdelete /usr/local/bin/ \
+    && ln -s /virtual/bin/gmsync /usr/local/bin/ \
+    && ln -s /virtual/bin/gmupload /usr/local/bin/ \
+    && ln -s /virtual/bin/gmdownload /usr/local/bin/
+

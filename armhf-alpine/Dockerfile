@@ -34,3 +34,9 @@ RUN apk -U update && \
 
 RUN adduser -S -u 1000 -h /home/gmuser -s /bin/sh gmuser
 COPY --from=compile /virtual /virtual
+RUN ln -s /virtual/bin/gmsearch /usr/local/bin/ \
+    && ln -s /virtual/bin/gmdelete /usr/local/bin/ \
+    && ln -s /virtual/bin/gmsync /usr/local/bin/ \
+    && ln -s /virtual/bin/gmupload /usr/local/bin/ \
+    && ln -s /virtual/bin/gmdownload /usr/local/bin/
+
